@@ -3,10 +3,10 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - six
+      - seven
   pull_request:
     branches:
-      - six
+      - seven
   release:
     types: [created]
 
@@ -16,12 +16,12 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Set up Go
       uses: actions/setup-go@v4
       with:
-        go-version: 1.22.0
+        go-version: 1.20
 
     - name: Install dependencies
       run: go mod download
@@ -36,7 +36,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Log in to DockerHub
       uses: docker/login-action@v2
