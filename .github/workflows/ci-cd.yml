@@ -3,10 +3,10 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - eleven
+      - twelve
   pull_request:
     branches:
-      - eleven
+      - twelve
   release:
     types: [created]
 
