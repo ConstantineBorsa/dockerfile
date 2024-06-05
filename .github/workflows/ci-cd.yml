@@ -3,10 +3,10 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - test5
+      - test6
   pull_request:
     branches:
-      - test5
+      - test6
   release:
     types: [created]
 
@@ -29,6 +29,9 @@ jobs:
     - name: Run tests
       run: go test ./...
 
+    - name: Output github.ref for debugging
+      run: echo "github.ref in test job is ${{ github.ref }}"
+
   publish:
     if: startsWith(github.ref, 'refs/tags/')
     needs: test
@@ -45,7 +48,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Output github.ref for debugging
-      run: echo "github.ref is ${{ github.ref }}"
+      run: echo "github.ref in publish job is ${{ github.ref }}"
 
     - name: Build and push Docker image
       run: |
