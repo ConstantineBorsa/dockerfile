@@ -54,4 +54,4 @@ jobs:
     - name: Push Docker image
     run: |
       docker push ${{ secrets.DOCKER_USERNAME }}/parcel-app:${{ github.ref_name }}
-      echo "Docker image pushed"
+      
