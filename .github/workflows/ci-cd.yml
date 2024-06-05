@@ -47,4 +47,4 @@ jobs:
     - name: Build and push Docker image
       run: |
         docker build -t ${{ secrets.DOCKER_USERNAME }}/parcel-app:${{ github.ref_name }} .
-        docker push ${{ secrets.DOCKER_USERNAME }}/parcell-app:${{ github.ref_name }}
+        docker push ${{ secrets.DOCKER_USERNAME }}/parcel-app:${{ github.ref_name }}
